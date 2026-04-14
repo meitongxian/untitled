@@ -44,11 +44,11 @@ body {
     border-radius: 50%;
     /* background-color: #fafafa; */
     filter: drop-shadow(0 0 0.5rem gray);
+    transform: translateZ(0);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10;
-    box-shadow: inset 5em 1em gold;
 }
 
 .hands-wrapper {
@@ -61,7 +61,7 @@ body {
     position: absolute;
     transform-origin: bottom;
     bottom: calc(0.5 * var(--clock-frame-diameter));
-    transform: rotate(calc(var(--rotation) * 1deg));
+    transform: rotate(calc(var(--rotation) * 1deg)) translateZ(0);
 }
 
 .hour-hand {
