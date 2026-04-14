@@ -19,14 +19,14 @@
 
 body {
     margin: 0;
-    display: flex;
-    justify-content: center;
     height: 100vh;
     background-color: var(--background);
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
-.clocks-wrapper {
+.clocks-wrapper, .clock-markings-wrapper {
     display: flex;
     transform: translateY(50%);
     align-self: end;
@@ -37,7 +37,7 @@ body {
     align-self: start;
 }
 
-.clock-face {
+.clock-markings {
     width: var(--clock-frame-diameter);
     height: var(--clock-frame-diameter);
     border: var(--clock-frame-border) solid var(--text-primary);
@@ -47,12 +47,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
+    box-shadow: inset 5em 1em gold;
 }
 
+.hands-wrapper {
+    transform: translateX(calc(0.5 * var(--clock-frame-diameter)));
+}
+
+
 .hour-hand, .minute-hand, .second-hand {
+    filter: drop-shadow(0 0 0.5rem gray);
     position: absolute;
     transform-origin: bottom;
-    bottom: calc((0.5 * var(--clock-frame-diameter)) - var(--clock-frame-border));
+    bottom: calc(0.5 * var(--clock-frame-diameter));
     transform: rotate(calc(var(--rotation) * 1deg));
 }
 
@@ -73,20 +81,12 @@ body {
     width: calc(0.5*var(--hands-width));
     height: var(--second-hand-height);
 }
-
-/* @media(max-width: 800px) {
+/* 
+@media(max-width: 800px) {
   
   .clocks-wrapper {
-    flex-direction: column;
-  }
-
-  .clock-face {
-    transform: rotate(-90deg);
-  }
-
-  body {
-    justify-content: end;
-    align-items: center;
+    transform: rotate(-90deg) translateY(50%);
+    align-self: center;
   }
   
 } */
